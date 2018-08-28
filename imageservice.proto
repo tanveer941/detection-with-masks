@@ -1,0 +1,135 @@
+syntax = "proto3";
+
+option cc_generic_services = true;
+package ImageService;
+///////////////////////////////////////////////////////
+// CImageService
+///////////////////////////////////////////////////////
+message ImgCntRequest
+{
+  string channel_name = 1;
+}
+
+message ImgCntResponse
+{
+  int32 total_frames = 1;
+  string channel_name = 2;
+}
+///////////////////////////////////////////////////////
+message infoChannelRequest
+{
+  bool required_channel_info = 1;
+}
+
+message infoChannelResponse
+{
+  repeated channelInfo channel_Info = 1;
+  int32 no_of_channels = 2;
+}
+///////////////////////////////////////////////////////
+message channelInfo
+{
+  string channel_name = 1;
+  repeated uint64 timestamp = 2;
+}
+///////////////////////////////////////////////////////
+message sourceFileRequest
+{
+    string sourcefile_name = 1;
+}
+message sourceFileResp
+{
+    string sourcefile_name = 1;
+}
+///////////////////////////////////////////////////////
+message setSourceFolderRequest
+{
+    string sourcefolder_name = 1;
+}
+message setSourceFolderResp
+{
+    string sourcefolder_name = 1;
+}
+///////////////////////////////////////////////////////
+message deviceTypeRequest
+{
+    string device_type = 1;
+}
+
+message deviceTypeResp
+{
+    string device_type = 1;
+}
+///////////////////////////////////////////////////////
+message PixelImageData
+{
+    string name = 1;
+    string format = 2;
+    bytes data = 3;
+    uint64 width = 4;
+    uint64 height = 5;
+}
+
+message ImageRequest
+{
+    uint64 required_timestamp = 1;
+    string request_channel_name = 2;
+    repeated string image_name = 3;
+}
+
+message ImageResponse
+{
+    uint64 recieved_timestamp = 1;
+    string response_channel_name =2;
+    string base_image_name = 3;
+    bytes base_image = 4;
+    repeated PixelImageData image_bytes = 5;
+}
+
+////Obselete image request structure. But don't delete it.
+////message ImageRequest
+////{
+////  uint64 required_timestamp = 1;
+////  string request_channel_name =2;
+////  string mode = 3;
+////}
+////message ImageResponse
+////{
+////  uint64 recieved_timestamp  = 1;
+////  string response_channel_name = 2;
+////  string mode = 3;
+////  bytes base_image = 4;
+////  repeated pixelImageData images = 5;
+////}
+
+message ImageDeleteRequest
+{
+    uint64 required_timestamp = 1;
+    string request_channel_name = 2;
+    repeated string image_name = 3;
+}
+
+message PixelImageWriteRequest
+{
+    uint64 recieved_timestamp  = 1;
+    string response_channel_name = 2;
+    PixelImageData image = 3;
+}
+
+message PixelImageWriteResponse
+{
+    bool status = 1;
+}
+
+message WaterShedWriteRequest
+{
+    uint64 recieved_timestamp  = 1;
+    string response_channel_name = 2;
+    repeated PixelImageData image = 3;
+}
+
+
+message WaterShedWriteResponse
+{
+    bool status = 1;
+}

@@ -1,0 +1,11 @@
+{
+  "image_request":"Response_Image",
+  "image_response":"SR_Response",
+  "algo_end_response":"Finalize",
+  "algo_begin_response":"Response_AlgoReady",
+  "visualization": "False",
+  "tracker" : {
+    "max_age":5,
+    "min_hits":3
+  }
+}

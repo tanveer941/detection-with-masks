@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option optimize_for = SPEED;
+package Algorithms;
+
+message ROICoordinatesType {
+	int32 X = 1;
+	int32 Y = 2;
+}
+
+message LDmidpoint {
+	int32 X = 1;
+	int32 Y = 2;
+}
+
+message LanePropType{
+	string Lanetype = 1;  // Adjacent, Ego, RoadEdge
+	string Lanepos = 2;   // Left, Right
+	int32 avg_intensity = 3; 
+	int32 markingPos = 4;
+}
+message ObjectType
+{
+	string object_class =1;
+	string object_subclass = 2;
+}
+
+message ImageType {
+	bytes imageData = 1;
+	int32 Hieght = 2;
+	int32 width =3;	
+	bool histogram = 4;
+	float gamma = 5;
+	float contrast = 6;
+	float brightness = 7;
+}
+
+
+	
+message ObjAttrType {
+	int32 trackID = 1;
+	ObjectType type = 2;
+	repeated ROICoordinatesType ROI = 3;
+	LDmidpoint midpoint = 4;
+	string shape = 5;
+	int32 hasUserCorrected = 6;
+	LanePropType lane = 7;
+	string trackername = 8;
+	bytes mask = 9;
+}
+
+message EventType {
+	string eventName = 1;
+	string eventData = 2;	
+	
+}
+/*-------------------------------------------------------------------*/
+message LabelRequest {
+		string requestType = 1;
+		repeated ObjAttrType CurrentAttr = 2;
+		ImageType NextImg = 3;
+	
+}
+
+message LabelResponse {
+	repeated ObjAttrType NextAttr = 1;
+	EventType event = 2;
+	uint64 timestamp = 3;
+}
+
+message AlgoState {
+	bool isReady = 1;
+}

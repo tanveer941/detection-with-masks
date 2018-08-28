@@ -1,0 +1,9 @@
+["potted plant", "airplane", "bottle", "cow", "motorcycle", "wine glass", "horse", "refrigerator",
+"fork", "donut", "keyboard", "cake", "tennis racket", "skis", "microwave", "teddy bear", "banana",
+"cell phone", "couch", "dog", "carrot", "fire hydrant", "bus", "zebra", "cat", "vase", "sandwich",
+ "bowl", "orange", "bear", "stop sign", "bench", "mouse", "boat", "toothbrush", "elephant", "apple",
+  "surfboard", "baseball bat", "traffic light", "oven", "person", "car", "pizza", "kite", "giraffe",
+  "spoon", "tv", "frisbee", "bicycle", "cup", "tie", "suitcase", "bed", "sheep", "scissors", "truck",
+   "remote", "baseball glove", "broccoli", "hair drier", "snowboard", "train", "parking meter",
+    "sports ball", "umbrella", "book", "hot dog", "clock", "chair", "handbag", "backpack", "dining table",
+     "bird", "knife", "skateboard", "sink", "toilet", "laptop", "toaster"]
